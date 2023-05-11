@@ -1,10 +1,10 @@
 #include <pgmspace.h>
  
 #define SECRET
-#define THINGNAME "ESP32-IoT"                             //Cambiar                    
+#define THINGNAME "ESP32-IoT"                       //Debe coincidir con el nombre del objeto de AWS                    
 
 const char DEVICE_ID[] = "e10480ef0a9d402f";
-const char AWS_IOT_ENDPOINT[] = "a2upmo4jsumq2m-ats.iot.eu-central-1.amazonaws.com";        //Cambiar  
+const char AWS_IOT_ENDPOINT[] = "a2upmo4jsumq2m-ats.iot.eu-central-1.amazonaws.com";        //Se obtiene de AWS IoT Core - Configuracion  
 
 const char WIFI_SSID[] = "JorgeWiFi";               //Cambiar 
 const char WIFI_PASSWORD[] = "123456789";           //Cambiar 
