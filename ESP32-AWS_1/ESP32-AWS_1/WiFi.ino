@@ -74,7 +74,7 @@ void connectAWS()
  
 void publishMessage()
 {
-  /*char jsonBuffer[512];
+  char jsonBuffer[512];
   StaticJsonDocument<200> doc;
 
   doc["ID"] = DEVICE_ID;
@@ -88,18 +88,7 @@ void publishMessage()
   client.publish(AWS_IOT_PUBLISH_TOPIC, jsonBuffer);                  // Publica el mensaje
 
   Serial.println("Publicando mensaje: ");
-  Serial.println(jsonBuffer);*/
-
-  StaticJsonDocument<200> doc;
-  doc["ID"] = DEVICE_ID;
-  doc["time"] = rtc.getEpoch();
-  doc["temperature"] = t;
-  doc["humidity"] = h;
-  doc["pressure"] = p;
-  char jsonBuffer[512];
-  serializeJson(doc, jsonBuffer); // print to client
- 
-  client.publish(AWS_IOT_PUBLISH_TOPIC, jsonBuffer);
+  Serial.println(jsonBuffer);
 }
  
 void messageHandler(char* topic, byte* payload, unsigned int length)
