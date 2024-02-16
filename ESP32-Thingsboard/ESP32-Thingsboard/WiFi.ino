@@ -22,19 +22,20 @@ void connectWIFI()
   WiFi.mode(WIFI_STA);
   WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
 
-  Serial.print("    - Conectando...");
+  Serial.print("[SETUP] Conectando...");
   
   while (WiFi.status() != WL_CONNECTED)                               // Espera hasta conectar con la red WiFi
   {    
     Serial.print(".");
     delay(500);
     if (++n > 15) {
+      Serial.println("");
       Serial.println("[SETUP] Imposibe conectar... \n\n");
       wificonn_notpossible = true;
       return;
     }
   }
-  Serial.print("[SETUP] Conectado a la red WiFi: ");
+  Serial.println("[SETUP] Conectado a la red WiFi: ");
   Serial.println(WIFI_SSID);
   delay(250);
 }

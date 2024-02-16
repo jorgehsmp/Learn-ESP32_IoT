@@ -1,10 +1,13 @@
+#include "Seeed_BME280.h"
+#include <Wire.h>
 
 #define LED 0
 
-int t;
+float t;
 int h;
 int p;
 
+BME280 bme280;
 
 void setup()
 {
@@ -12,18 +15,22 @@ void setup()
   connectWIFI();
   setupMQTT();
 
+  if(!bme280.init()){
+    Serial.println("Device error!");
+  }
+
   pinMode(LED, OUTPUT);
 }
  
 void loop()
 {
-  t = random(20,30);
+  t = bme280.getTemperature();
   Serial.println("Temperatura obtenida!");
   delay(250);
-  p = random(1010,1020);
+  p = bme280.getPressure();
   Serial.println("Presión obtenida!");
   delay(250);
-  h = random(20,80);
+  h = bme280.getHumidity();
   Serial.println("Humedad obtenida!");
 
   WIFI_Manager();

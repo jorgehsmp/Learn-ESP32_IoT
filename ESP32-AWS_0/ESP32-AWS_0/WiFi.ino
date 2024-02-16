@@ -79,9 +79,9 @@ void publishMessage()
 
   doc["ID"] = DEVICE_ID;
   doc["time"] = rtc.getEpoch();
-  doc["temperature"] = random(20,30);
-  doc["humidity"] = random(20,80);
-  doc["pressure"] = random(1005,1020);
+  doc["temperature"] = t;
+  doc["humidity"] = h;
+  doc["pressure"] = p;
   
   serializeJson(doc, jsonBuffer); 
 
