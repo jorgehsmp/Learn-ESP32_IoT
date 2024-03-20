@@ -45,6 +45,6 @@ void WIFI_Manager ()
   }
   if (WiFi.status() == WL_CONNECTED)
   {
-    Serial.println(rtc.getEpoch());
+    Serial.println(rtc.getDate());
   }
 }
